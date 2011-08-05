@@ -27,7 +27,6 @@ class CombinationsFinder
           result << "#{split_left} + #{split_right} => #{word}"
 
         end
-
       end
     end
 

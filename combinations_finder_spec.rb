@@ -65,12 +65,11 @@ describe CombinationsFinder do
       ]
 
     end
-
   end
 
   # More granular testing
 
-  it "should only consider words of a certain length as valid" do
+  it "should only consider words of a certain length as usable" do
 
     dictionary = ["short", "", "a", "verylongword"]
 
@@ -80,7 +79,7 @@ describe CombinationsFinder do
 
   end
 
-  it "should only consider alpha character" do
+  it "should only consider alpha characters" do
 
     dictionary = ["short    ", "    short", "short", "verylongword"]
 
@@ -102,6 +101,7 @@ describe CombinationsFinder do
         3 => ['abc'],
         4 => [],
     }
+
   end
 
 end
