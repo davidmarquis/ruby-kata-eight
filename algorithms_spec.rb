@@ -98,12 +98,6 @@ shared_examples "the algorithm" do
 
 end
 
-describe ReadableAlgorithm do
-
-  it_behaves_like "the algorithm"
-
-end
-
 describe FastAlgorithm do
 
   it_behaves_like "the algorithm"
@@ -125,5 +119,11 @@ describe FastAlgorithm do
     }
 
   end
+
+end
+
+describe ReadableAlgorithm do
+
+  it_behaves_like "the algorithm"
 
 end

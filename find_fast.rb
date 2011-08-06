@@ -4,12 +4,12 @@ class FastAlgorithm
 
   def find_combinations(dictionary)
 
-    @words = sanitize(dictionary, MINIMUM_WORD_LENGTH, MAXIMUM_WORD_LENGTH)
+    @words = sanitize(dictionary)
     @words_by_length = group_words_by_length(@words, MAXIMUM_WORD_LENGTH)
 
     result = []
 
-    for word in words_of_maximum_length do
+    for word in words_of_maximum_length() do
 
       split_start_idx = MINIMUM_WORD_LENGTH - 1
       split_end_idx = word.length - MINIMUM_WORD_LENGTH - 1
@@ -40,7 +40,7 @@ class FastAlgorithm
 
   def sanitize(dictionary)
     dictionary = cleanup_words(dictionary)
-    keep_only_usable_words(dictionary)
+    dictionary = keep_only_usable_words(dictionary)
     dictionary
   end
 
@@ -54,9 +54,7 @@ class FastAlgorithm
 
   def group_words_by_length(dictionary, max_length)
     groups = initialize_groups_up_to(max_length)
-    for word in dictionary do
-      groups[word.length][word] = nil
-    end
+    for word in dictionary do groups[word.length][word] = nil end
     groups
   end
 
