@@ -1,6 +1,6 @@
 require "rspec"
-require './find_readable'
-require './find_fast'
+require 'find_readable'
+require 'find_fast'
 
 shared_examples "the algorithm" do
   let(:algo) { described_class.new() }
