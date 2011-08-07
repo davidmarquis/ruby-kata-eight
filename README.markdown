@@ -4,21 +4,22 @@ Only steps 1 and 2 (readable and fast) have been implemented.
 Both are tested using RSpec by the test suite that can be found in "spec/algorithms_spec.rb". They have been implemented using TDD.
 
 To run the tests, make sure:
-1. that your LOAD_PATH includes "./lib"
-1. that your working directory is set to "./spec" in order for the wordlist.txt file to be found
-1. to be patient, the last test takes a while to run
+
+1.  that your LOAD_PATH includes "./lib"
+1.  that your working directory is set to "./spec" in order for the wordlist.txt file to be found
+1.  to be patient, the last test takes a while to run
 
 # Things to note:
 
 ## Readable implementation
 
 * The kata article was not very clear on what is "readable" code, so I considered the following:
-** Code that is readable *to a software developer*
-** Code that prohibits duplications (DRY)
-** Code that uses well named symbols (variables, methods, classes)
-** Code that is well indented and formatted to language best practices
-** Code that is self-explanatory
-** In short, code that is *clean*.
+  * Code that is readable *to a software developer*
+  * Code that prohibits duplications (DRY)
+  * Code that uses well named symbols (variables, methods, classes)
+  * Code that is well indented and formatted to language best practices
+  * Code that is self-explanatory
+  * In short, code that is *clean*.
 * Uses the original words array throughout the algorithm. Thus, numerous lookups required by the algorithms each require traversal of the entire original array.
 
 ## Fast implementation
