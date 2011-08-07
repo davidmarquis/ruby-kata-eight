@@ -1,4 +1,5 @@
-require "config"
+MINIMUM_WORD_LENGTH = 2
+MAXIMUM_WORD_LENGTH = 6
 
 class FastAlgorithm
 
@@ -11,17 +12,14 @@ class FastAlgorithm
 
     for word in words_of_maximum_length() do
 
-      split_start_idx = MINIMUM_WORD_LENGTH - 1
-      split_end_idx = word.length - MINIMUM_WORD_LENGTH - 1
+      for split_idx in usable_split_range(word) do
 
-      for split_idx in (split_start_idx..split_end_idx) do
+        left_part = word[0..split_idx]
+        right_part = word[split_idx + 1, word.length]
 
-        split_left = word[0..split_idx]
-        split_right = word[split_idx + 1, word.length]
+        if word_exists?(left_part) and word_exists?(right_part)
 
-        if word_exists?(split_left) and word_exists?(split_right)
-
-          result << "#{split_left} + #{split_right} => #{word}"
+          result << "#{left_part} + #{right_part} => #{word}"
 
         end
       end
@@ -54,13 +52,24 @@ class FastAlgorithm
 
   def group_words_by_length(dictionary, max_length)
     groups = initialize_groups_up_to(max_length)
-    for word in dictionary do groups[word.length][word] = nil end
+    for word in dictionary do
+      groups[word.length][word] = nil
+    end
     groups
   end
 
   def initialize_groups_up_to(max_length)
     groups = {}
-    for length in 1..max_length do groups[length] = {} end
+    for length in 1..max_length do
+      groups[length] = {}
+    end
     groups
+  end
+
+  def usable_split_range(word)
+    split_start_idx = MINIMUM_WORD_LENGTH - 1
+    split_end_idx = word.length - MINIMUM_WORD_LENGTH - 1
+
+    (split_start_idx..split_end_idx)
   end
 end
